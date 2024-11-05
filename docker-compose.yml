@@ -10,5 +10,9 @@ services:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=SafeDocs_SqlServer_Docker_repo
       - MSSQL_PID=Express
+      - DB_SERVER=sqlserver-production.up.railway.app,1433
+      - DB_NAME=Fekra
+      - DB_USER=sa
+      - DB_PASSWORD=SafeDocs_SqlServer_Docker_repo
     ports:
       - "1433:1433"
