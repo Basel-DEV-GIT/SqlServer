@@ -13,8 +13,4 @@ services:
     ports:
       - "1433:1433"
     restart: always 
-    healthcheck: 
-      test: ["CMD", "sqlcmd", "-S", "localhost", "-U", "sa", "-P", "YourStrong!Passw0rd", "-Q", "SELECT 1"]
-      interval: 10s
-      retries: 5
-      start_period: 10s
+   
