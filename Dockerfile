@@ -8,5 +8,9 @@ RUN mkdir -p /var/opt/mssql
 
 EXPOSE 1433
 
+RUN echo "[network]" > /var/opt/mssql/mssql.conf && \
+    echo "tcpport=1433" >> /var/opt/mssql/mssql.conf && \
+    echo "ipaddress=0.0.0.0" >> /var/opt/mssql/mssql.conf
+
 CMD ["/opt/mssql/bin/sqlservr"]
 
