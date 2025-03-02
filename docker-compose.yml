@@ -8,7 +8,7 @@ services:
     container_name: my_sql_server_container
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "YourStrong!Passw0rd"
+      SA_PASSWORD: "NETWICHER@2025@DB!"
       MSSQL_PID: "Express"
     ports:
       - "1433:1433"
