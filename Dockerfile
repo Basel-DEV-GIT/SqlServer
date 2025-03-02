@@ -12,8 +12,6 @@ RUN echo "[network]" > /var/opt/mssql/mssql.conf && \
     echo "tcpport=1433" >> /var/opt/mssql/mssql.conf && \
     echo "ipaddress=0.0.0.0" >> /var/opt/mssql/mssql.conf
 
-COPY setup.sql /docker-entrypoint-initdb.d/setup.sql
-
 EXPOSE 1433
 
 CMD ["/opt/mssql/bin/sqlservr"]
