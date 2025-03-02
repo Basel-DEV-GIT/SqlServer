@@ -1,32 +1,19 @@
-
-version: "3.5"
-
-networks:
-  myappnetwork:
-    name: myappnetwork
+version: "3.8"
 
 services:
-  myapp:
-    build: .
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
     restart: always
-    container_name: myapp
-    depends_on: [myappdb]
     environment:
-      ASPNETCORE_ENVIRONMENT: Development
-    networks:
-      - myappnetwork
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "NETWICHER@2025@DB!"
+      MSSQL_PID: "Express"
     ports:
-      - 5000:80
-    links:
-      - myappdb
-  myappdb:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
-    restart: always
-    container_name: myappdb
-    environment:
-      ACCEPT_EULA: Y
-      SA_PASSWORD: NETWICHER@2025@DB!
-    networks:
-      - myappnetwork
-    ports:
-      - 1433:1433
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+volumes:
+  sql_data:
+    driver: local
